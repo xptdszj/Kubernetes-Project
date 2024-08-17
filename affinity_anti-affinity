@@ -1,0 +1,16 @@
+Kubernetes affinity and anti-affinity
+
+Kubernetes labels provide a powerful mechanism for organizing and managing resources. By assigning descriptive key-value pairs to pods and other objects, we can effectively 
+categorize and filter them, enhancing operational efficiency. This granular control facilitates streamlined development and maintenance processes. Furthermore, labels serve as 
+essential identifiers for controllers and services to accurately target and manage their associated resources. Leveraging labels for querying, deletion, and other management 
+tasks significantly improves overall resource administration.
+
+Kubernetes labels offer a multi-dimensional approach to resource management. By applying labels across various attributes such as application type (e.g., app: myapp), deployment
+tier (e.g., tier: frontend), environment (e.g., environment: dev), and version, we can effectively categorize and organize resources. This granular labeling scheme facilitates
+efficient management and querying operations.
+
+labels:
+  app: myapp
+  tier: frontend
+
+
