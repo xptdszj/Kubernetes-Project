@@ -13,4 +13,9 @@ labels:
   app: myapp
   tier: frontend
 
+View the labels of all pod resource objects in the default namespace:
+
+[root@xptdszj01 ~]# kubectl get pods --show-labels
+
+
 
