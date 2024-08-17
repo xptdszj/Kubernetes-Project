@@ -17,5 +17,62 @@ View the labels of all pod resource objects in the default namespace:
 
 [root@xptdszj01 ~]# kubectl get pods --show-labels
 
+View the label values ​​of all Pod resource objects with the label run：
+
+[root@xptdsj01 ~]# kubectl get pods -L run
+
+View the pod resource object with the run label:
+
+[root@xptdszj01 ~]# kubectl get pods -l run
+
+To annotate a Kubernetes resource with a label, employ the label command. This command permits the assignment of multiple 
+key-value pairs to a specified resource type. For instance, to add a release label to the pod named my-nginx-5b56ccd65f-thnqt,
+execute the following command:
+
+[root@xptdszj01 ~]# kubectl label pods my-nginx-5b56ccd65f-thnqt release=canary
+
+Check whether the label is successfully added:
+
+[root@xptdszj01 ~]#  kubectl get pods -l release --show-labels
+
+
+Label nodes
+Not only pods can use labels, but nodes can also be labeled:
+View the labels of nodes:
+
+[root@xptdszj01 ~]# kubectl get nodes --show-labels
+
+Label the node:
+
+[root@xptdszj01 ~]#  kubectl label nodes xptdszj01 xptdszj=IT
+
+Namespace:
+Kubernetes namespaces serve as a fundamental mechanism for partitioning cluster resources into isolated scopes. These cluster-level entities can be leveraged to segregate workloads based on various criteria, such as user, tenant, environment, or project. For instance, distinct namespaces can be established for development, testing, and production environments.
+
+The majority of Kubernetes resources reside within namespaces, where resource names must be unique. However, this uniqueness constraint applies solely within the namespace boundary. Across namespaces, identically named resources are permissible.
+
+In contrast to namespaced resources, certain Kubernetes objects, including nodes, namespaces, and PersistentVolumes, exist at the cluster level. As such, their names must adhere to a global uniqueness requirement, as they are not confined to a specific namespace.
+
+Namespace Management
+Namespaces function as virtual clusters within a Kubernetes cluster, providing isolation and scoping for resources. Several default namespaces, such as kube-system for system components and default for user-created resources without explicit namespace specification, are pre-configured.
+
+To inspect existing namespaces, utilize the kubectl get namespace command. For detailed information about a specific namespace, employ kubectl describe namespace <namespace-name>.
+
+Namespaces are standard Kubernetes resources defined primarily by their name. Creation is straightforward using kubectl create namespace <namespace-name>, adhering to alphanumeric and hyphen naming conventions. A critical aspect of namespace management is the cascading deletion of all enclosed resources upon namespace removal.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
